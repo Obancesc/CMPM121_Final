@@ -48,9 +48,9 @@ public class Player : MonoBehaviour
             GetComponent<Animator>().Play("Swing_2_3");
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
+       /* if(Input.GetKeyDown(KeyCode.P))
         {
             GetComponent<Animator>().Play("Swing_3");
-        }
+        }*/
     }
 }
