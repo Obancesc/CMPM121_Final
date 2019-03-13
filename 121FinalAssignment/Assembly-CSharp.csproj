@@ -60,9 +60,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Akishaqs\Characters\Kira\Demo\DemoStuff\Customizable.cs" />
+    <Compile Include="Assets\Akishaqs\Characters\Kira\Demo\DemoStuff\DragToRotate.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
+    <Compile Include="Assets\Scripts\Dummy.cs" />
+    <Compile Include="Assets\Scripts\DummyCap.cs" />
+    <Compile Include="Assets\Scripts\DummyCylinder.cs" />
     <Compile Include="Assets\Scripts\IntoThirdHit.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Sowrd.cs" />
+    <None Include="Assets\Akishaqs\Characters\Kira\Demo\DemoStuff\Raleway\OFL.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Octavian/Desktop/CMPM121_Final/121FinalAssignment/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

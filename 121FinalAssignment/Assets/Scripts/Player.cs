@@ -9,11 +9,16 @@ public class Player : MonoBehaviour
     public float backwardSpeed = 2.0F;
     public float rotateSpeed = 2.0F;
     private Vector3 velo;
+	private Animator anim;
+	public float animSpeed = 1.5F;
+	
+	public GameObject cube;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigid = GetComponent<Rigidbody>();		
+        rigid = GetComponent<Rigidbody>();
+		anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,6 +26,9 @@ public class Player : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+		anim.SetFloat("Speed", v);
+		anim.SetFloat("Direction", h);
+		anim.speed = animSpeed;
 
         velo = new Vector3(0, 0, v);
         velo = transform.TransformDirection(velo);
@@ -52,5 +60,26 @@ public class Player : MonoBehaviour
         {
             GetComponent<Animator>().Play("Swing_3");
         }*/
+		
+		if(Input.GetKeyDown(KeyCode.P))
+		{
+			GetComponent<Animator>().Play("Swing_4");
+			//rigid.AddForce(new Vector3(0,1,0) * 10F);
+		}
+		
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			Application.LoadLevel(Application.loadedLevel);
+		}
     }
+	
+		/*private void OnCollisionEnter(Collision other)
+	{
+		if(other.gameObject.tag == "Cube") 
+		{
+		Debug.Log("Hope this works");
+		rigid.AddForce(-transform.forward * 2000);
+		rigid.useGravity = true;
+		}
+	}*/
 }
