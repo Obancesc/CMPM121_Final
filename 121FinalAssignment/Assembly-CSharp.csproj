@@ -66,7 +66,9 @@
     <Compile Include="Assets\Scripts\Dummy.cs" />
     <Compile Include="Assets\Scripts\DummyCap.cs" />
     <Compile Include="Assets\Scripts\DummyCylinder.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\IntoThirdHit.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Sowrd.cs" />
     <None Include="Assets\Akishaqs\Characters\Kira\Demo\DemoStuff\Raleway\OFL.txt" />

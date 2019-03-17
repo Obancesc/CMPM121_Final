@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
 	private Animator anim;
 	public float animSpeed = 1.5F;
 	
-	public GameObject cube;
+	//public GameObject cube;
+	public int death = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -71,15 +72,22 @@ public class Player : MonoBehaviour
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
+		
+		if(death == 5) 
+		{
+			Destroy(gameObject);
+			Application.LoadLevel(2);
+		}
     }
 	
-		/*private void OnCollisionEnter(Collision other)
+	
+	
+		private void OnCollisionEnter(Collision other)
 	{
-		if(other.gameObject.tag == "Cube") 
+		if(other.gameObject.tag == "Cube" || other.gameObject.tag == "Capsule" || other.gameObject.tag == "Cylinder") 
 		{
-		Debug.Log("Hope this works");
-		rigid.AddForce(-transform.forward * 2000);
-		rigid.useGravity = true;
+			death++;
+			Debug.Log("Die you! Haha!");
 		}
-	}*/
+	}
 }

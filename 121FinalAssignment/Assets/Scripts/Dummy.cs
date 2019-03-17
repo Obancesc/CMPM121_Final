@@ -5,18 +5,26 @@ using UnityEngine;
 public class Dummy : MonoBehaviour
 {
 	public int count = 0;
+	public int MinDist = 100;
 	Rigidbody rb;
+	public Transform player;
+	public float speed = 1f;
 		
-    // Start is called before the first frame update
     void Start()
     {
      //   hit = GetComponent<Animation>();
 	 rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+		transform.LookAt(player);
+		//Debug.Log("Come here");
+		float distance = Vector3.Distance(transform.position, player.position);
+		if(distance < MinDist) {
+			transform.position += transform.forward*speed*Time.deltaTime;
+		}
+
 		if(count == 14) 
 		{
 			Destroy(gameObject);
