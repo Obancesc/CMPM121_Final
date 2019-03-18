@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class Player : MonoBehaviour
 	private Animator anim;
 	public float animSpeed = 1.5F;
 	public int win = 0;
+	public Text text;
 	
 	//public GameObject cube;
-	public float death = 0;
+	public float death = 25;
 
     void Start()
     {
@@ -55,16 +57,10 @@ public class Player : MonoBehaviour
         {
             GetComponent<Animator>().Play("Swing_2_3");
         }
-
-       /* if(Input.GetKeyDown(KeyCode.P))
-        {
-            GetComponent<Animator>().Play("Swing_3");
-        }*/
 		
 		if(Input.GetKeyDown(KeyCode.P))
 		{
 			GetComponent<Animator>().Play("Swing_4");
-			//rigid.AddForce(new Vector3(0,1,0) * 10F);
 		}
 		
 		if(Input.GetKeyDown(KeyCode.R))
@@ -72,7 +68,7 @@ public class Player : MonoBehaviour
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		
-		if(death >= 25) 
+		if(death < 0) 
 		{
 			Destroy(gameObject);
 			Application.LoadLevel(2);
@@ -85,17 +81,19 @@ public class Player : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Cylinder") 
 		{
-			death += 0.5F;
-			Debug.Log("Die you! Haha!");
+			death -= 0.75F;
+			text.text = death.ToString();
 		}
 		
 		if(other.gameObject.tag == "Capulse") {
-			death += 1.5F;
+			death -= 1.5F;
+			text.text = death.ToString();
 		}
 		
 		if(other.gameObject.tag == "Cube") 
 		{
-			death++;
+			death--;
+			text.text = death.ToString();
 		}
 	}
 }
