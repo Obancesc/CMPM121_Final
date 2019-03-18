@@ -7,14 +7,16 @@ public class DummyCap : MonoBehaviour
 	public int coun = 0;
 	Rigidbody rig;
 	public int MiDist = 10;
+	public float AttkDist = 0.1F;
 	public Transform play;
 	public float speeed = 2F;
-	
+	private Animation anim;
 	
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody>();
+		anim = gameObject.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,12 @@ public class DummyCap : MonoBehaviour
 			transform.position += transform.forward*speeed*Time.deltaTime;
 		}
 		
-		if(coun == 20) 
+		if(distance < AttkDist) 
+		{
+			anim.Play("Cap_Att");
+		}
+		
+		if(coun == 15) 
 		{
 			Destroy(gameObject);
 		}

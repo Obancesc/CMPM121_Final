@@ -9,11 +9,15 @@ public class Dummy : MonoBehaviour
 	Rigidbody rb;
 	public Transform player;
 	public float speed = 1f;
+	public float AttDist = 0.5F;
+	private Animation anim;
+	
 		
     void Start()
     {
      //   hit = GetComponent<Animation>();
 	 rb = GetComponent<Rigidbody>();
+	 anim = gameObject.GetComponent<Animation>();
     }
 
     void Update()
@@ -24,14 +28,16 @@ public class Dummy : MonoBehaviour
 		if(distance < MinDist) {
 			transform.position += transform.forward*speed*Time.deltaTime;
 		}
+		
+		if(distance < AttDist) 
+		{
+			anim.Play("Cub_Att");
+		}
 
-		if(count == 14) 
+		if(count == 10) 
 		{
 			Destroy(gameObject);
 		}
-		
-		
-       //GetComponent<Animator>().Play("Get_Hit");
     }
 	
 	private void OnCollisionEnter(Collision other) 

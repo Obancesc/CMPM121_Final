@@ -11,18 +11,17 @@ public class Player : MonoBehaviour
     private Vector3 velo;
 	private Animator anim;
 	public float animSpeed = 1.5F;
+	public int win = 0;
 	
 	//public GameObject cube;
-	public int death = 0;
+	public float death = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float h = Input.GetAxis("Horizontal");
@@ -73,7 +72,7 @@ public class Player : MonoBehaviour
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		
-		if(death == 5) 
+		if(death >= 25) 
 		{
 			Destroy(gameObject);
 			Application.LoadLevel(2);
@@ -84,10 +83,19 @@ public class Player : MonoBehaviour
 	
 		private void OnCollisionEnter(Collision other)
 	{
-		if(other.gameObject.tag == "Cube" || other.gameObject.tag == "Capsule" || other.gameObject.tag == "Cylinder") 
+		if(other.gameObject.tag == "Cylinder") 
+		{
+			death += 0.5F;
+			Debug.Log("Die you! Haha!");
+		}
+		
+		if(other.gameObject.tag == "Capulse") {
+			death += 1.5F;
+		}
+		
+		if(other.gameObject.tag == "Cube") 
 		{
 			death++;
-			Debug.Log("Die you! Haha!");
 		}
 	}
 }
