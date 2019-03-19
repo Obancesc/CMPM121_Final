@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody rigid;
     public float forwardSpeed = 3.0F;
-    public float backwardSpeed = 2.0F;
+    public float backwardSpeed = 2.5F;
     public float rotateSpeed = 2.0F;
     private Vector3 velo;
 	private Animator anim;

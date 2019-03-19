@@ -11381,7 +11381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 3
-  backwardSpeed: 2
+  backwardSpeed: 2.5
   rotateSpeed: 2
   animSpeed: 1.5
   win: 0
